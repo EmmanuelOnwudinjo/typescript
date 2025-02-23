@@ -1,0 +1,26 @@
+# filterPersons Function
+
+## Overview
+The `filterPersons` function filters an array of persons based on their type (`user` or `admin`) and a given set of criteria. It ensures type safety using TypeScript by enforcing correct filtering based on the `personType` argument.
+
+## Features
+- Supports filtering for both **users** and **admins**.
+- Ensures correct return types using **TypeScript function overloads**.
+- Allows **partial filtering** based on provided criteria (excluding the `type` field).
+
+## Type Definitions
+
+```typescript
+type User = {
+  name: string;
+  age: number;
+  type: 'user';
+};
+
+type Admin = {
+  name: string;
+  role: string;
+  type: 'admin';
+};
+
+type Criteria<T> = Partial<Omit<T, 'type'>>;
